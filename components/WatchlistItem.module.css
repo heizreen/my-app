@@ -1,0 +1,45 @@
+.details {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.text {
+  min-width: 0;
+}
+
+.target {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.notes {
+  font-size: 0.85rem;
+  color: var(--muted);
+  /* Keeps line breaks typed into the notes box */
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.edit {
+  display: flex;
+  flex: 0 0 32px;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--muted);
+  background: var(--card);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+}
+
+.edit:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}

@@ -1,0 +1,65 @@
+.dialog {
+  width: min(420px, calc(100% - 32px));
+  /* The global reset removes the margin that normally centres a dialog */
+  margin: auto;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--foreground);
+  background: var(--card);
+  box-shadow: var(--shadow-hover);
+}
+
+.dialog::backdrop {
+  background: rgb(0 0 0 / 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+}
+
+.heading {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.field input,
+.field textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 400;
+  color: var(--foreground);
+  background: var(--background);
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--accent);
+  outline: 0;
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}

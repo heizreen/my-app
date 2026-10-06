@@ -1,0 +1,53 @@
+.form {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.form:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.input {
+  width: 200px;
+  min-width: 0;
+  padding: 6px 8px 6px 14px;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--foreground);
+  background: transparent;
+}
+
+.input::placeholder {
+  color: var(--muted);
+}
+
+.button {
+  padding: 6px 14px;
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-contrast);
+  background: var(--accent);
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .form {
+    flex: 1;
+  }
+
+  .input {
+    flex: 1;
+    width: auto;
+  }
+}

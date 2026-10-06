@@ -1,0 +1,57 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Clips the poster so it can zoom on hover without spilling out */
+.frame {
+  aspect-ratio: 2 / 3;
+  margin-bottom: 8px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover .frame {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.poster {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.card:hover .poster {
+  transform: scale(1.04);
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--muted);
+}
+
+.title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+  transition: color 0.15s;
+}
+
+.card:hover .title {
+  color: var(--accent);
+}
+
+.year {
+  font-size: 0.85rem;
+  color: var(--muted);
+}

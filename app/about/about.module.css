@@ -1,0 +1,34 @@
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+  list-style: none;
+}
+
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-weight: 500;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+/* The round tick in front of each item */
+.features li::before {
+  content: "✓";
+  display: flex;
+  flex: 0 0 28px;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-soft);
+}

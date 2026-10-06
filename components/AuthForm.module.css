@@ -1,0 +1,46 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin: 32px auto 0;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.form h1 {
+  margin-bottom: 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.field input {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 400;
+  color: var(--foreground);
+  background: var(--background);
+}
+
+.field input:focus {
+  border-color: var(--accent);
+  outline: 0;
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.hint {
+  font-weight: 400;
+  color: var(--muted);
+}

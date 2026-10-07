@@ -8,6 +8,7 @@ export default function AboutPage() {
         <li>Movie browsing functionality</li>
         <li>Watchlist management</li>
         <li>Responsive design</li>
+        <li>Modern UI/UX</li>
       </ul>
     </main>
   );

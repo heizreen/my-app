@@ -1,0 +1,52 @@
+/* The stars, then the hint beside them. Where there is no room, as under a
+   movie card, the hint drops onto its own line. */
+.rating {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 12px;
+}
+
+.stars {
+  display: flex;
+  /* Lines the first star up with the edge of whatever is above it */
+  margin-left: -4px;
+}
+
+/* No gap between the buttons, so the mouse never falls between two stars */
+.star,
+.lit {
+  display: flex;
+  padding: 4px;
+  border: 0;
+  border-radius: 6px;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.15s, transform 0.15s;
+}
+
+.star:enabled:hover,
+.lit:enabled:hover {
+  transform: scale(1.15);
+}
+
+/* Switched off when no changes are left. The colours stay as they are, so
+   the rating is still easy to read. */
+.star:disabled,
+.lit:disabled {
+  cursor: default;
+}
+
+.lit {
+  color: var(--accent);
+}
+
+.lit svg {
+  fill: currentColor;
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+}

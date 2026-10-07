@@ -1,4 +1,4 @@
-import MovieGrid from "@/components/MovieGrid";
+import FilteredMovieGrid from "@/components/FilteredMovieGrid";
 import { searchMovies } from "@/lib/ghibli";
 
 export const metadata = { title: "Search" };
@@ -25,7 +25,11 @@ export default async function SearchPage({ searchParams }) {
     <main>
       <h1>Results for “{query}”</h1>
       {movies.length > 0 ? (
-        <MovieGrid movies={movies} />
+        <FilteredMovieGrid
+          movies={movies}
+          pathname="/search"
+          searchParams={searchParams}
+        />
       ) : (
         <p className="muted">No movies found.</p>
       )}

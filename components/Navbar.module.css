@@ -27,6 +27,8 @@
 
 .nav {
   display: flex;
+  /* Five links do not fit on one line on a narrow phone */
+  flex-wrap: wrap;
   gap: 4px;
   /* Pushes the search bar and account links to the right */
   margin-right: auto;

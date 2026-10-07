@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
+import WatchStats from "@/components/WatchStats";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -31,6 +33,12 @@ export default function Home() {
         />
         <figcaption>Enjoy your movie-watching experience!</figcaption>
       </figure>
+
+      {/* WatchStats has to wait for the database. With Suspense the page
+          above is sent straight away, and the stats follow when ready. */}
+      <Suspense fallback={null}>
+        <WatchStats />
+      </Suspense>
     </main>
   );
 }

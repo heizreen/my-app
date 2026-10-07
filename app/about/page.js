@@ -7,6 +7,7 @@ export default function AboutPage() {
       <ul className={styles.features}>
         <li>Movie browsing functionality</li>
         <li>Watchlist management</li>
+        <li>Watched tracking and star ratings</li>
         <li>Responsive design</li>
         <li>Modern UI/UX</li>
       </ul>

@@ -1,8 +1,11 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import StarRating from "@/components/StarRating";
+import WatchedButton from "@/components/WatchedButton";
 import WatchlistButton from "@/components/WatchlistButton";
 import { getUser } from "@/lib/auth";
 import { getMovie } from "@/lib/ghibli";
+import { getWatchedEntry } from "@/lib/watched";
 import { isInWatchlist } from "@/lib/watchlist";
 import styles from "../movies.module.css";
 
@@ -24,8 +27,16 @@ export async function generateMetadata({ params }) {
 export default async function MoviePage({ params }) {
   const movie = await loadMovie(params);
   const user = await getUser();
-  // A database lookup, done on the server before the page is sent
-  const isSaved = user ? await isInWatchlist(user.email, movie.id) : false;
+  // Database lookups, done on the server before the page is sent.
+  // Promise.all runs the two at the same time instead of one after the other.
+  const [isSaved, watched] = user
+    ? await Promise.all([
+        isInWatchlist(user.email, movie.id),
+        getWatchedEntry(user.email, movie.id),
+      ])
+    : [false, null];
+  // Client Components only need these two fields, not the whole movie
+  const basics = { id: movie.id, title: movie.title };
 
   return (
     <main>
@@ -72,13 +83,25 @@ export default async function MoviePage({ params }) {
             </div>
           </dl>
 
-          {/* Only logged-in users get the button. The Server Component
-              passes plain data to this Client Component. */}
+          {/* Only logged-in users get the buttons. The Server Component
+              passes plain data to these Client Components. */}
           {user && (
-            <WatchlistButton
-              movie={{ id: movie.id, title: movie.title }}
-              isSaved={isSaved}
-            />
+            <div className={styles.actions}>
+              <WatchlistButton movie={basics} isSaved={isSaved} />
+              <WatchedButton movie={basics} isWatched={watched !== null} />
+            </div>
+          )}
+
+          {/* The stars only appear once the movie is marked as watched */}
+          {watched && (
+            <div className={styles.rating}>
+              <span className={styles.ratingLabel}>Your rating</span>
+              <StarRating
+                movie={basics}
+                rating={watched.rating}
+                changesLeft={watched.changesLeft}
+              />
+            </div>
           )}
         </div>
       </div>

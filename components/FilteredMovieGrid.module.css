@@ -1,0 +1,15 @@
+/* The filter on the left and the sort on the right. On a narrow screen the
+   sort drops onto its own line. */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-top: 16px;
+}
+
+.empty {
+  margin-top: 24px;
+  color: var(--muted);
+}

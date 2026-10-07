@@ -1,0 +1,46 @@
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.heading {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.option,
+.active {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.option:hover {
+  color: var(--foreground);
+  background: var(--surface);
+}
+
+.active {
+  border-color: transparent;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* How many movies the choice would show */
+.count {
+  font-size: 0.8rem;
+  font-weight: 400;
+}

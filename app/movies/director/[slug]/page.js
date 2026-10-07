@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import MovieGrid from "@/components/MovieGrid";
+import FilteredMovieGrid from "@/components/FilteredMovieGrid";
 import { getDirectors, getMoviesByDirector } from "@/lib/ghibli";
 
 async function loadDirector(params) {
@@ -16,14 +16,18 @@ export async function generateMetadata({ params }) {
   return { title: `Movies by ${director.name}` };
 }
 
-export default async function DirectorPage({ params }) {
+export default async function DirectorPage({ params, searchParams }) {
   const director = await loadDirector(params);
   const movies = await getMoviesByDirector(director.name);
 
   return (
     <main>
       <h1>Movies by {director.name}</h1>
-      <MovieGrid movies={movies} />
+      <FilteredMovieGrid
+        movies={movies}
+        pathname={`/movies/director/${director.slug}`}
+        searchParams={searchParams}
+      />
     </main>
   );
 }

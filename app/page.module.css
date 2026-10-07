@@ -16,6 +16,8 @@
 .intro h1 {
   margin-bottom: 0;
   font-size: clamp(2.25rem, 1.5rem + 3.5vw, 3.75rem);
+  /* Lets a very long name with no spaces break onto the next line */
+  overflow-wrap: anywhere;
 }
 
 .lead {

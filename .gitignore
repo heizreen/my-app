@@ -40,5 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# local data: user accounts and the SQLite database
+# local data: the old SQLite database, from before the app moved to MySQL
 /data/

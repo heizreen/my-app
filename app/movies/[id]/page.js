@@ -25,7 +25,7 @@ export default async function MoviePage({ params }) {
   const movie = await loadMovie(params);
   const user = await getUser();
   // A database lookup, done on the server before the page is sent
-  const isSaved = user ? isInWatchlist(user.email, movie.id) : false;
+  const isSaved = user ? await isInWatchlist(user.email, movie.id) : false;
 
   return (
     <main>
